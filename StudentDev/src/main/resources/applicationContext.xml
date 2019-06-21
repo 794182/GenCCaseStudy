@@ -1,0 +1,34 @@
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="StudentDao"
+		class="dao.StudentDaoInMemory">
+		<constructor-arg ref="StudentData" />
+	</bean>
+
+	<bean id="StudentData" class="dao.StudentData"
+		factory-method="getProdData">
+	</bean>
+
+	<bean id="StudentService"
+		class="service.StudentService">
+		<constructor-arg ref="StudentDao" />
+
+	</bean>
+
+	<bean id="StudentRunner" class="view.StudentView" />
+
+	<bean id="StudentController"
+		class="controller.StudentController">
+		<constructor-arg ref="StudentRunner" />
+		<constructor-arg ref="StudentService" />
+	</bean>
+</beans>

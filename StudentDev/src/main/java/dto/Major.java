@@ -42,10 +42,10 @@ public class Major {
 
     @Override
     public String toString() {
-        return "Major{" +
+        return "[" +
                 "name='" + name + '\'' +
                 ", difficulty=" + difficulty +
                 ", cost=" + cost +
-                '}';
+                ']';
     }
 }
