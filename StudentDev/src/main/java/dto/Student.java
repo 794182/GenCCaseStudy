@@ -4,24 +4,23 @@ import java.time.LocalDate;
 
 public class Student {
     private String name;
-    private Major studentMajor;
-    private int age;
     private char sex;
-    private LocalDate dob;
-    private int studentId;
+    private int age;
+    private LocalDate DoB;
+    int StudentId;
+    private Major StudentMajor;
 
-    public Student() {
-        super();
-    }
 
-    public Student(String inputName, Major inputStudentMajor, int inputAge, char inputSex, LocalDate inputDob, int inputStudentId) {
+    public Student() {super(); }
+
+    public Student(String name, char sex, int age, int StudentId, LocalDate DoB, Major StudentMajor){
         super();
-        name = inputName;
-        studentMajor = inputStudentMajor;
-        age = inputAge;
-        sex = inputSex;
-        dob = inputDob;
-        studentId = inputStudentId;
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.StudentId =StudentId;
+        this.DoB = DoB;
+        this.StudentMajor = StudentMajor;
     }
 
     public String getName() {
@@ -32,12 +31,12 @@ public class Student {
         this.name = name;
     }
 
-    public Major getStudentMajor() {
-        return studentMajor;
+    public char getSex() {
+        return sex;
     }
 
-    public void setStudentMajor(Major studentMajor) {
-        this.studentMajor = studentMajor;
+    public void setSex(char sex) {
+        this.sex = sex;
     }
 
     public int getAge() {
@@ -48,39 +47,37 @@ public class Student {
         this.age = age;
     }
 
-    public char getSex() {
-        return sex;
+    public LocalDate getDoB() {
+        return DoB;
     }
 
-    public void setSex(char sex) {
-        this.sex = sex;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDoB(LocalDate doB) {
+        DoB = doB;
     }
 
     public int getStudentId() {
-        return studentId;
+        return StudentId;
     }
 
     public void setStudentId(int studentId) {
-        this.studentId = studentId;
+        StudentId = studentId;
+    }
+
+    public Major getStudentMajor() {
+        return StudentMajor;
+    }
+
+    public void setStudentMajor(Major studentMajor) {
+        StudentMajor = studentMajor;
+
     }
 
     @Override
     public String toString() {
-        return
-                "\n\n name:\t" + name +
-                ",\n studentMajor:\t" + studentMajor +
-                ",\n age:\t" + age +
-                ",\n sex:\t" + sex +
-                ",\n dob:\t" + dob +
-                ",\n studentId:\t" + studentId+"\n\n"
-                ;
+        return "Student=" + name +
+                " StudentMajor=" + StudentMajor.getName() +
+                '}';
     }
 }
+
+

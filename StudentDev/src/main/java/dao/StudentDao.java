@@ -1,24 +1,35 @@
 package dao;
 
-import dto.Major;
-import dto.Student;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import dto.Major;
+import dto.Student;
+
 public interface StudentDao {
-    public Map<Major, List<Student>> getAllStudents();
 
-    public Set<Major> getAllMajors();
+    public Student getStudentById(int id);
 
-    public List<Student> getStudentsByMajor(Major major);
+    public Major getMajorById(int id);
 
-    public Major getMajorByName(String name);
+    public List<Student> getAllStudents();
 
-    public void addNewStudent(Student s);
+    public List<Major> getAllMajors();
 
-    public boolean graduateStudent(Student s);
+    public List<Major> getAllHardMajors();
 
-    public List<Student> searchStudents(Map<String, String> params);
+    public List<Student> getAllStudentsByMajorCost(double i);
+
+    public List<Major> getAllMajorsBetweenDifficulty(int low, int high);
+
+    public List<Student> getStudentsByMajor(Major StudentMajor);
+
+    public Major getMajorByName (String name);
+
+    public void addNewStudent (Student s);
+
+    public boolean graduateStudent (Student s);
+
+    public List<Student> searchStudents (Map<String, String> params);
 }

@@ -4,24 +4,23 @@ import java.time.LocalDate;
 
 public class AddStudentDto {
     private String name;
-    private String studentMajorName;
-    private int age;
     private char sex;
-    private LocalDate dob;
-    private int studentId;
+    private int age;
+    private LocalDate DoB;
+    int StudentId;
+    private String StudentMajorName;
 
-    public AddStudentDto() {
-        super();
-    }
 
-    public AddStudentDto(String inputName, String inputStudentMajorName, int inputAge, char inputSex, LocalDate inputDob, int inputStudentId) {
+    public AddStudentDto() {super(); }
+
+    public AddStudentDto(String name, char sex, int age, int StudentId, LocalDate DoB, String StudentMajorName){
         super();
-        name = inputName;
-        studentMajorName = inputStudentMajorName;
-        age = inputAge;
-        sex = inputSex;
-        dob = inputDob;
-        studentId = inputStudentId;
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.StudentId =StudentId;
+        this.DoB = DoB;
+        this.StudentMajorName = StudentMajorName;
     }
 
     public String getName() {
@@ -32,12 +31,12 @@ public class AddStudentDto {
         this.name = name;
     }
 
-    public String getStudentMajorName() {
-        return studentMajorName;
+    public char getSex() {
+        return sex;
     }
 
-    public void setStudentMajorName(String studentMajorName) {
-        this.studentMajorName = studentMajorName;
+    public void setSex(char sex) {
+        this.sex = sex;
     }
 
     public int getAge() {
@@ -48,27 +47,28 @@ public class AddStudentDto {
         this.age = age;
     }
 
-    public char getSex() {
-        return sex;
+    public LocalDate getDoB() {
+        return DoB;
     }
 
-    public void setSex(char sex) {
-        this.sex = sex;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDoB(LocalDate doB) {
+        DoB = doB;
     }
 
     public int getStudentId() {
-        return studentId;
+        return StudentId;
     }
 
     public void setStudentId(int studentId) {
-        this.studentId = studentId;
+        StudentId = studentId;
+    }
+
+    public String getStudentMajorName() {
+        return StudentMajorName;
+    }
+
+    public void setStudentMajorName(String studentMajorName) {
+        StudentMajorName = studentMajorName;
+
     }
 }

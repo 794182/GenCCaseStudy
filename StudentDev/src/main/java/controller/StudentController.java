@@ -1,50 +1,58 @@
 package controller;
 
-import dto.AddStudentDto;
-import dto.Major;
-import dto.Student;
-import org.junit.runner.notification.RunNotifier;
-import service.StudentService;
-import view.StudentRunner;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
-public class StudentController extends RunNotifier {
-    private StudentRunner frontEnd;
+import dto.AddStudentDto;
+import dto.Major;
+import service.StudentService;
+import service.StudentServiceImplementation;
+import view.Runner;
+import dto.Student;
+public class StudentController {
+    private Runner frontEnd;
     private StudentService service;
-
-    public StudentController(StudentRunner frontEnd, StudentService service) {
+    
+    public StudentController(Runner frontEnd, StudentService service){
         super();
         this.frontEnd = frontEnd;
         this.service = service;
         frontEnd.run(this);
     }
 
-    public Student addStudent(AddStudentDto studentData) {
-        return service.addStudent(studentData);
-    }
+    public List<Major> getAllMajors() { return service.getAllMajors(); }
 
-    public List<Student> listStudents() {
-        return service.findAllStudents();
-    }
+    public List<Student> getAllStudents() { return service.getAllStudents(); }
 
-    public List<Student> listStudents(String major) {
-        return service.findStudentsByMajorName(major);
-    }
+    public Student getStudentById(int i) { return service.getStudentById(i); }
 
-    public void graduateStudent(Student student) {
-        service.graduateStudent(student);
-    }
+    public Major getMajorById(int i) { return service.getMajorById(i); }
 
-    public List<String> getMajors() {
+    public List<Major> getAllHardMajors() {return service.getAllHardMajors(); }
+
+    public List<Student> getAllStudentsByMajorCost(double i) { return service.getAllStudentsByMajorCost(i); }
+
+    public List<Major> getAllMajorsBetweenDifficulty(int low, int high) { return service.getAllMajorsBetweenDifficulty(low, high); }
+    
+    //public Student addStudent(AddStudentDto stuData){ return service.addStudent(stuData);}
+    
+    //public List<Student> listStudents() {return service.findAllStudents();}
+    
+    //public List<Student> listStudents(String major){return service.findStudentsByMajorName(major);}
+    
+    //public void graduateStudent(Student student) {service.graduateStudent(student);}
+    
+    /*public List<String> getMajors(){
         List<Major> majors = service.getMajors();
-        List<String> majorNames = new ArrayList<>();
-        for(Major m : majors) {
-            majorNames.add(m.getName());
+        List<String> majorName = new ArrayList<>();
+        for (Major m: majors){
+            majorName.add(m.getName());
         }
-        Collections.sort(majorNames);
-        return majorNames;
-    }
+        Collections.sort(majorName);
+        return majorName;
+    }*/
+
+
 }

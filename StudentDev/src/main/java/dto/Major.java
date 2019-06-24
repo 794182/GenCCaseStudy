@@ -1,19 +1,19 @@
 package dto;
 
 public class Major {
+
+    int majorId;
     private String name;
     private int difficulty;
-    private double cost;
+    double cost;
 
-    public Major() {
-        super();
-    }
+    public Major() {super();}
 
-    public Major(String inputName, int inputDifficulty, double inputCost) {
+    public Major(String name, int difficulty, double cost){
         super();
-        name = inputName;
-        difficulty = inputDifficulty;
-        cost = inputCost;
+        this.name = name;
+        this.difficulty = difficulty;
+        this.cost = cost;
     }
 
     public String getName() {
@@ -40,12 +40,17 @@ public class Major {
         this.cost = cost;
     }
 
+    public int getMajorId() { return majorId; }
+
+    public void setMajorId(int inputId) { majorId = inputId; }
+
     @Override
     public String toString() {
-        return "[" +
-                "name='" + name + '\'' +
+        return "Major{" +
+                "majorId=" + majorId +
+                ", name='" + name + '\'' +
                 ", difficulty=" + difficulty +
                 ", cost=" + cost +
-                ']';
+                '}';
     }
 }

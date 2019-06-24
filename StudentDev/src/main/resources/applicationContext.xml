@@ -1,34 +1,47 @@
-
-
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/Technocrats?serverTimezone=America/Chicago&amp;useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
 
-	<bean id="StudentDao"
-		class="dao.StudentDaoInMemory">
-		<constructor-arg ref="StudentData" />
-	</bean>
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-	<bean id="StudentData" class="dao.StudentData"
-		factory-method="getProdData">
-	</bean>
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-	<bean id="StudentService"
-		class="service.StudentService">
-		<constructor-arg ref="StudentDao" />
+    <bean id="StudentDao"
+          class="dao.StudentDaoDatabase">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 
-	</bean>
+    <bean id="StudentService"
+          class="service.StudentServiceImplementation">
+        <constructor-arg ref="StudentDao" />
+    </bean>
 
-	<bean id="StudentRunner" class="view.StudentView" />
+    <bean id="Runner" class="view.StudentView"/>
 
-	<bean id="StudentController"
-		class="controller.StudentController">
-		<constructor-arg ref="StudentRunner" />
-		<constructor-arg ref="StudentService" />
-	</bean>
+    <bean id="Controller"
+          class="controller.StudentController">
+        <constructor-arg ref="Runner"/>
+        <constructor-arg ref="StudentService"/>
+    </bean>
+
+
 </beans>
