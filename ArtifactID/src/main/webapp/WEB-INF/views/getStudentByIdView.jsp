@@ -3,7 +3,14 @@
 <html>
 <head>
 <Title>Get Student By ID</Title>
-<link rel="stylesheet" href="style.css">
+<style>
+* {
+	font-family: calibri;
+}
+body {
+	background-color: wheat;
+}
+</style>
 </head>
 <body>
 	<h1>Get Student By ID</h1>

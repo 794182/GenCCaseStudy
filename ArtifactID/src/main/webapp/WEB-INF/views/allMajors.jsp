@@ -3,6 +3,14 @@
 <html>
 <head>
 <Title>All Majors</Title>
+<style>
+* {
+	font-family: calibri;
+}
+body {
+	background-color: wheat;
+}
+</style>
 </head>
 <body>
 	<h1>All Majors</h1>

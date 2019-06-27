@@ -3,7 +3,14 @@
 <html>
 <head>
 <Title>Get Major By ID</Title>
-<link rel="stylesheet" href="style.css">
+<style>
+* {
+	font-family: calibri;
+}
+body {
+	background-color: wheat;
+}
+</style>
 </head>
 <body>
 	<form action="getMajorByIdView" method="post">

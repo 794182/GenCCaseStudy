@@ -3,6 +3,14 @@
 <html>
 <head>
 <Title>All Students</Title>
+<style>
+* {
+	font-family: calibri;
+}
+body {
+	background-color: wheat;
+}
+</style>
 </head>
 <body>
 	<h1>All Students</h1>
