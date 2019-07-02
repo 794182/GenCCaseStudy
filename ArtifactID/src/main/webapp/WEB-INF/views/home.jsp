@@ -15,6 +15,7 @@
 		<li><a href="allStudents">View all students</a></li>
 		<li><a href="getMajorById">Get major by ID</a></li>
 		<li><a href="getStudentById">Get student by ID</a></li>
+		<li><a href="getAllStudentsByMajorCost">Get all students by major cost</a></li>
 		</ol>
 	</jsp:body>
 </tags:template>

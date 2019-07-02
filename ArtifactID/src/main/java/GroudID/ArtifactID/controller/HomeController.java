@@ -1,5 +1,8 @@
 package GroudID.ArtifactID.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -70,6 +73,21 @@ public class HomeController {
 		Student gotStudent = service.getStudentById(StudentID);
 		ret.addObject("getStudentByIdView", gotStudent);
 		m.addAttribute("student", gotStudent);
+		return ret;
+	}
+	
+	@RequestMapping(value="/getAllStudentsByMajorCost")
+	public ModelAndView getAllStudentsByMajorCost() {
+		ModelAndView ret = new ModelAndView("getAllStudentsByMajorCost");
+		return ret;
+	}
+	
+	@RequestMapping(value="/getAllStudentsByMajorCostView")
+	public ModelAndView getAllStudentsByMajorCostView(double cost, Model m) {
+		ModelAndView ret = new ModelAndView("getAllStudentsByMajorCostView");
+		List<Student> studentList = new ArrayList<>(service.getAllStudentsByMajorCost(cost));
+		ret.addObject("getAllStudentsByMajorCostView", studentList);
+		m.addAttribute("students", studentList);
 		return ret;
 	}
 }

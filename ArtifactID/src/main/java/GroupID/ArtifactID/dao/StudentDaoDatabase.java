@@ -42,7 +42,7 @@ public class StudentDaoDatabase implements StudentDao {
     private static String GET_ALL_HARD_MAJORS = "SELECT * " + "FROM major " + "WHERE difficulty > 5 ";
     private static String GET_ALL_STUDENTS = "SELECT * FROM student ";
     private static String GET_ALL_MAJORS = "SELECT * FROM major ";
-    private static String GET_ALL_STUDENTS_BY_MAJOR_COST = "SELECT * FROM student JOIN major WHERE major.cost > ? GROUP BY student.StudentId ";
+    private static String GET_ALL_STUDENTS_BY_MAJOR_COST = "SELECT * " + "FROM student " + "JOIN major " + "ON major.majorId = student.majorId " + "WHERE major.cost > ? " + "ORDER BY student.StudentId ";
     private static String GET_ALL_MAJORS_BETWEEN_DIFFICULTY = "SELECT * FROM major WHERE difficulty BETWEEN ? AND ? ";
 
     public List<Student> getAllStudentsByMajorCost(double cost) {
