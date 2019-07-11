@@ -1,14 +1,10 @@
 package testing;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,23 +29,13 @@ class TechnocratsUniversityTests {
 		driver.quit();
 	}
 
-	@BeforeEach
-	void setUp() throws Exception {
-
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-
-	}
-
 	@Test
 	void testAllLinks() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		// Go to home page of Technocrats University
 		String baseUrl = "http://localhost:8080/ArtifactID/hello";
-		driver.get("http://localhost:8080/ArtifactID/hello");
+		driver.get(baseUrl);
 
 		// Go to all majors page
 		driver.findElement(By.id("allMajors")).click();
@@ -76,7 +62,6 @@ class TechnocratsUniversityTests {
 		driver.findElement(By.id("textEntry")).sendKeys("2000");
 		driver.findElement(By.id("submitButton")).click();
 		driver.findElement(By.id("goBack")).click();
-		// fail("Not yet implemented");
 	}
 
 	@Test
